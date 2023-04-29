@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <NavBar>
-      <div className='text-4xl'>Blue Hen Shuffle</div>
+      <div className='flex text-4xl justify-center'>Blue Hen Shuffle</div>
         <ul className='flex flex-1 justify-between'>
           <div>Logo</div>
           <div className=' flex space-x-2'>
