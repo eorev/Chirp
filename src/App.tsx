@@ -1,23 +1,28 @@
 import './App.css'
 import Landing from './components/Landing'
+import Learn from './components/Learn'
 import NavBar from './components/NavBar'
 import { BiUserCircle } from "react-icons/bi"
 import { FaGraduationCap } from "react-icons/fa"
+import { Link, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <NavBar>
-      <div className='flex text-4xl justify-center'>Chirp</div>
+      <Link to="/" className='flex text-4xl justify-center'>Chirp</Link>
         <ul className='flex flex-1 justify-between'>
           <div>Logo</div>
           <div className=' flex space-x-2'>
-            <button className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'><FaGraduationCap size={30}></FaGraduationCap>Learn</button>
+            <Link to="/learn" className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'><FaGraduationCap size={30}></FaGraduationCap>Learn</Link>
             <button className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'><BiUserCircle size={30}></BiUserCircle>Login</button>
           </div>
         </ul>
       </NavBar>
-      <Landing></Landing>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/learn" element={<Learn />} />
+      </Routes>
     </div>
   )
 }
