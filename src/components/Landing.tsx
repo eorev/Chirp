@@ -5,7 +5,7 @@ const Landing = () => {
         <header>
             <div className="header-row">
                 <div className='header-left__container'>
-                    <h1 className='header-title'>Blue Hen Shuffle</h1>
+                    <h1 className='header-title'>Chirp</h1>
                     <h2 className='header-subtitle'>Learning Site by Students.</h2>
                     <h2 className='header-subtitle'>For Students.</h2>
                     <button className='header-button hover:brightness-110'>
