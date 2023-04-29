@@ -9,12 +9,12 @@ function App() {
   return (
     <div>
       <NavBar>
-        <ul className='flex justify-around'>
+      <div className='text-4xl'>Blue Hen Shuffle</div>
+        <ul className='flex flex-1 justify-between'>
           <div>Logo</div>
-          <div className=''>Blue Hen Shuffle</div>
-          <div className='flex space-x-2'>
-            <button className='flex justify-center items'><FaGraduationCap size={30}></FaGraduationCap>Learn</button>
-            <button className='flex justify-center self-end'><BiUserCircle size={30}></BiUserCircle>Login</button>
+          <div className=' flex space-x-2'>
+            <button className='flex place-items-center rounded-lg'><FaGraduationCap size={30}></FaGraduationCap>Learn</button>
+            <button className='flex place-items-center'><BiUserCircle size={30}></BiUserCircle>Login</button>
           </div>
         </ul>
       </NavBar>
