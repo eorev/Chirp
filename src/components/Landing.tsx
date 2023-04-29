@@ -1,5 +1,4 @@
 import './Landing.css'
-import LandingImage from '../assets/LandingImage'
 
 const Landing = () => {
     return (
