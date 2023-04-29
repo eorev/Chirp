@@ -1,18 +1,39 @@
 header {
-    display: flex;
+    width: 100%;
+    background-color: #00529f1d;
+    padding: 20px 0;
+}
+
+.header-row {
+    max-width: 1000px;
+    width: 100%;
     margin: auto;
-    justify-content: center;
-    max-width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-left__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    text-align: left;
 }
 
-.landing-image {
-   height: 50%;
-   width: 50%;
+.header-right__container {
 
+}
+
+.header-title {
+    font-size: 68px;
+}
+  
+.header-subtitle {
+    font-size: 32px;
+}
+
+.header-button {
+    background-color: #00529f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
 }
