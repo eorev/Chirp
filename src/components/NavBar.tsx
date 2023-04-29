@@ -1,15 +1,5 @@
 import { useEffect, useState } from "react";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDTDKOmK4mn6oq2vDC4bzmHlhv_05DeIus",
-  authDomain: "bluehenshuffle.firebaseapp.com",
-  projectId: "bluehenshuffle",
-  storageBucket: "bluehenshuffle.appspot.com",
-  messagingSenderId: "463035576313",
-  appId: "1:463035576313:web:7e16779c70cb446855d728",
-  measurementId: "G-LM4Y2H7RRN"
-};
-
 export default function NavBar({ children }: any) {
 
   const scrollDirection = useScrollDirection();

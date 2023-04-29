@@ -34,11 +34,12 @@ header {
 }
 
 .header-title {
-    font-size: 68px;
+    font-size: 82px;
 }
   
 .header-subtitle {
     font-size: 32px;
+    margin: 8px 0px;
 }
 
 .header-button {
@@ -48,4 +49,5 @@ header {
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
+    width: 50%;
 }
