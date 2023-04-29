@@ -1,6 +1,6 @@
 import './App.css'
-import Landing from './components/Landing'
-import Learn from './components/Learn'
+import Landing from './pages/Landing'
+import Learn from './pages/Learn'
 import NavBar from './components/NavBar'
 import { BiUserCircle } from "react-icons/bi"
 import { FaGraduationCap } from "react-icons/fa"
