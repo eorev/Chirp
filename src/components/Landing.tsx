@@ -8,7 +8,7 @@ const Landing = () => {
                     <h1 className='header-title'>Blue Hen Shuffle</h1>
                     <h2 className='header-subtitle'>Learning Site by Students.</h2>
                     <h2 className='header-subtitle'>For Students.</h2>
-                    <button className='header-button'>
+                    <button className='header-button hover:brightness-110'>
                         <h1>Learn Now</h1>
                     </button>
                 </div>
