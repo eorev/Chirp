@@ -6,9 +6,6 @@ import { BiUserCircle } from "react-icons/bi"
 function App() {
 
   return (
-    <>
-      <Landing></Landing>
-    </>
     <div>
       <NavBar>
         <ul className='flex justify-around'>
@@ -20,6 +17,7 @@ function App() {
           </div>
         </ul>
       </NavBar>
+      <Landing></Landing>
     </div>
   )
 }
