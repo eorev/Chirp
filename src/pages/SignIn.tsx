@@ -1,5 +1,5 @@
 import React, { useState, FormEvent, useEffect } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "firebase/auth";
@@ -18,6 +18,17 @@ const SignIn: React.FC<SignInProps> = ({ user }) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Signed in successfully.");
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      await signInWithPopup(auth, provider);
+      alert("Signed in with Google successfully.");
     } catch (error) {
       alert(error);
     }
@@ -57,6 +68,8 @@ const SignIn: React.FC<SignInProps> = ({ user }) => {
       </form>
       <h1>Don't have a account?</h1>
       <Link to="/SignUp" className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'>Sign Up!</Link>
+      <br />
+      <button onClick={handleGoogleSignIn}>Sign in with Google</button>
     </div>
   );
 };
