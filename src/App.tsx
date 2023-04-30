@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import { BiUserCircle } from "react-icons/bi"
 import { FaGraduationCap } from "react-icons/fa"
 import { Link, Route, Routes } from "react-router-dom";
+import Level1 from './pages/Level1'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/learn" element={<Learn />} />
+        <Route path="/Lesson1" element={<Level1 />} />
       </Routes>
     </div>
   )
