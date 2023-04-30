@@ -9,7 +9,7 @@ interface LearnProps {
 
 function LessonCard(props: any) {
   return (
-    <div className="min-w-[16rem] h-72 bg-slate-100 rounded-lg shadow-md p-2 m-2">
+    <div className="min-w-[16rem] h-72 bg-neutral-100 rounded-lg shadow-md p-2 m-2">
       <Link to={props.to}>{props.lesson}</Link>
     </div>
   )

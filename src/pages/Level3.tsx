@@ -16,6 +16,8 @@ function arraysEqual(a, b) {
 
 export default function Level3() {
     const [array, setArray] = useState([2, 1, 4, 3, 5]);
+    const [correct, setCorrect] = useState(false);
+
 
   const handleItemReorder = (currentPos:number, newPos:number) => {
     const newArray = array.slice();
@@ -23,6 +25,7 @@ export default function Level3() {
     newArray.splice(newPos, 0, removed);
     setArray(newArray);
     console.log(newArray); // Log the updated array
+    arraysEqual(array, [1,2,3,4,5]) ? setCorrect(true) : setCorrect(false)
   };
 
     return (
