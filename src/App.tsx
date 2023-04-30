@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Landing from "./pages/Landing";
 import Learn from "./pages/Learn";
@@ -12,8 +12,6 @@ import { getFirestore } from './firebase';
 import { useState, useEffect } from 'react';
 import Level2 from './pages/Level2';
 import Level3 from './pages/Level3';
-import Level4 from './pages/Level4';
-import Level5 from './pages/Level5';
 import Level4 from './pages/Level4';
 import Level5 from './pages/Level5';
 

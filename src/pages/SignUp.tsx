@@ -1,9 +1,8 @@
 // src/SignUp.tsx
-import React, { useState, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { doc, setDoc, getFirestore } from "firebase/firestore";
-import { firestore } from "../firebase";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");

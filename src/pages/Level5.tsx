@@ -34,9 +34,9 @@ export default function Level5() {
             <h2 className="font-bold mb-2">How Quick Sort works:</h2>
             <ol className="list-decimal list-inside mb-4">
                 <li>Imagine you have a bunch of numbers that you want to sort from smallest to largest.</li>
-                <li>To do this with quick sort, you first have to choose a "pivot" element. Its easy to choose the first element.</li>
-                <li>Now, move along the numbers to the right until you find a number greater than or equal to pivot. This number will be the new pivot.</li>
-                <li>Do the same thing with the new pivot, but this time go to the left and switch pivots when the number is less than or equal to it.</li>
+                <li>To do this with quick sort, you first have to choose a "pivot" element. Its easy to choose the middle element and move it to the end.</li>
+                <li>Now, choose the left and right bounds, and move the left bound along the numbers to the right until you find a number greater than or equal to the pivot. The left bound is the leftmost number, and the right bound is the rightmost number (this doesn't include numbers you've used as pivots!).</li>
+                <li>Do the same thing with the right bound, but this time go to the left and swap the bounds when they cross each other, or swap with the pivot when both bounds cant go farther.</li>
                 <li>Repeat the previous 2 steps until the pivot is partitioned. This means that every number to the left of it is less than the pivot, and every number to the right of it is greater than the pivot.</li>
                 <li>Repeat this with the rest of the numbers (the left side first, then the right side, over and over until they are all sorted), and you have completed quick sort!</li>
             </ol>
@@ -46,7 +46,7 @@ export default function Level5() {
 
             </div>
 
-            <h1 style={{fontSize:"18px"}}></h1>
+            <h1 style={{fontSize:"18px"}}>We've given you a harder dataset to work with. Time to put your knowledge to the test! You will be given minimal guidance.</h1>
             <div className="flex">
                 <Draggable onPosChange={handleItemReorder}>
                     {array.map((item) => (
@@ -57,13 +57,14 @@ export default function Level5() {
                 </Draggable>
 
             </div>
-            {arraysEqual(array, [2, 1, 4, 3, 5, 8, 6]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Start with the first number as the pivot, and compare it with the numbers to the right. If a number is greater than or equal to the pivot, smaller, make it the new pivot. Once it is partitioned, swap!</p>}
-            {arraysEqual(array, [4, 1, 2, 3, 5, 8, 6]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Great job! Now the pivot will be 4.</p>}
-            {arraysEqual(array, [5, 1, 2, 3, 4, 8, 6]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Great job! Now the pivot will be 5.</p>}
-            {arraysEqual(array, [8, 1, 2, 3, 4, 5, 6]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Great job! Now the pivot will be 8.</p>}
-            {arraysEqual(array, [6, 1, 2, 3, 4, 5, 8]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Great job! Now the pivot will be 6.</p>}
-            {arraysEqual(array, [6, 1, 2, 3, 4, 5, 8]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Great job! Now the pivot will be 6. Insert it in the right spot!</p>}
-            {arraysEqual(array, [1, 2, 3, 4, 5, 6, 8]) && arraysEqual(array, [4,3]) && <p className="text-sm mb-2">Congratulations! You just learned 5 new sorting algorithms!</p>}
+            {arraysEqual(array, [2, 1, 4, 3, 5, 8, 6]) && <p className="text-sm mb-2">Start with 3 as the pivot. Move it to the end by swapping it with 6.</p>}
+            {arraysEqual(array, [2, 1, 4, 6, 5, 8, 3]) && <p className="text-sm mb-2">Nice! Now set the bounds to 2, and 8, and traverse.</p>}
+            {arraysEqual(array, [2, 1, 3, 6, 5, 8, 4]) && <p className="text-sm mb-2">Great job!.</p>}
+            {arraysEqual(array, [1, 2, 3, 6, 5, 8, 4]) && <p className="text-sm mb-2">Great job!</p>}
+            {arraysEqual(array, [1, 2, 3, 4, 6, 8, 5]) && <p className="text-sm mb-2">Great job!</p>}
+            {arraysEqual(array, [1, 2, 3, 4, 6, 8, 5]) && <p className="text-sm mb-2">Great job!</p>}
+            {arraysEqual(array, [1, 2, 3, 4, 5, 8, 6]) && <p className="text-sm mb-2">Great job! Insert the final pivot in the right spot!</p>}
+            {arraysEqual(array, [1, 2, 3, 4, 5, 6, 8]) && <p className="text-sm mb-2">Congratulations! You just learned 5 new sorting algorithms!</p>}
 
     </div>
     )

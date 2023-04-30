@@ -16,7 +16,7 @@ function arraysEqual(a: number[], b: number[]) {
 
 export default function Level4() {
   const finalArray = [1,2,3,4,5];
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState<boolean>(false);
     const [arrayOne, setArrayOne] = useState([2, 1]);
     const [arrayTwo, setArrayTwo] = useState([4, 3]);
     const arrayThree = [5];
@@ -88,16 +88,15 @@ export default function Level4() {
             {arraysEqual(arrayOne, [2,1]) && arraysEqual(arrayTwo, [4,3]) && <p className="text-sm mb-2">Start with the first group, and compare both numbers. If the second element is smaller, swap the two elements.</p>}
             {arraysEqual(arrayOne, [1,2]) && <p className="text-sm">Great Job! Now move to the second group and compare it  with the second element. If the second element is smaller, swap them. There is only one element in the third group, so you can skip it for now.</p>}
             {arraysEqual(arrayTwo, [3,4]) && <p className="text-sm">Great Job! The numbers are sorted. Click the button below!</p>}
-            <button className="font-bold" onClick={()=>setVisible(!visible)}>
+            <button className="font-bold" onClick={()=>{setVisible(!visible); {console.log(visible)}}}>
               Click here to combine the groups once told!
-              <div className="flex justify-center">
+            </button>
+            <div style={!visible ?{display: "none"} : {display: "flex", justifyContent: "center"}}>
                 {finalArray.map((item) => (
-                  <div key={item} className="w-10 h-10 bg-red-500 m-2 flex justify-center items-center rounded-md text-white font-bold" hidden={!visible}>{item}</div>
+                  <div key={item} className="w-10 h-10 bg-red-500 m-2 flex justify-center items-center rounded-md text-white font-bold">{item}</div>
                 )
                 )}
-              </div>
-            </button>
-            {arraysEqual(arrayOne, [1,2,3,4,5]) && <p className="text-sm mb-2">You completed merge sort!</p>}
+            </div>
     </div>
     )
 }
