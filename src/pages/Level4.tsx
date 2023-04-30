@@ -41,7 +41,7 @@ export default function Level4() {
         <div className="flex flex-col mt-24 justify-center items-center text-4xl">
             <h1>Merge Sort Example</h1>
             <div className="text-sm">
-            <p>Merge Sort is a little bit more tricky than the last two sorting algorithms you learned. Get ready for a challenge! Once you get the hand of it, it is easy to understand and implement.</p>
+            <p>Merge Sort is a little bit more tricky than the last two sorting algorithms you learned. Get ready for a challenge! Once you get the hang of it, it is easy to understand and implement.</p>
             <h2>How Merge Sort works:</h2>
             <ol>
                 <li>Imagine you have a bunch of numbers that you want to sort from smallest to largest.</li>
