@@ -31,6 +31,7 @@ const Learn: React.FC<LearnProps> = ({ username, level }) => {
 
   if (!user) {
     return (
+        <div>
         <div className="mt-24 flex flex-col justify-center items-center text-4xl">
             <div>Hello, Username</div>
             <div>You have # XP</div>
@@ -43,6 +44,7 @@ const Learn: React.FC<LearnProps> = ({ username, level }) => {
         </div>
       <div className="mt-24 flex flex-col justify-center items-center text-4xl">
         <div>Please sign in to access the Learn tab</div>
+      </div>
       </div>
     )
   }
