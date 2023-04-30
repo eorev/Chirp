@@ -1,30 +1,29 @@
-import './App.css';
-import Landing from './pages/Landing';
-import Learn from './pages/Learn';
-import NavBar from './components/NavBar';
+import React, { useState, useEffect } from "react";
 import { Link, Route, Routes } from 'react-router-dom';
-import Level1 from './pages/Level1';
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import { auth } from './firebase';
-import { onAuthStateChanged } from 'firebase/auth';
-import { doc, getDoc } from 'firebase/firestore';
-import { getFirestore } from './firebase';
-import { useState, useEffect } from 'react';
+import NavBar from "./components/NavBar";
+import Landing from "./pages/Landing";
+import Learn from "./pages/Learn";
+import Level1 from "./pages/Level1";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore, getFirestore } from "./firebase";
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        const userDocRef = doc(getFirestore(), 'users', currentUser.uid);
+        const userDocRef = doc(getFirestore(), "users", currentUser.uid);
         const userDocSnap = await getDoc(userDocRef);
-        setUsername(userDocSnap.data()?.username || '');
+        setUsername(userDocSnap.data()?.username || "");
       } else {
-        setUsername('');
+        setUsername("");
       }
     });
 
@@ -33,12 +32,14 @@ const App = () => {
     };
   }, []);
 
+  const sampleLevel = 10; // Replace this with the actual level or XP value
+
   return (
     <div>
       <NavBar user={user} username={username} />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/learn" element={<Learn />} />
+        <Route path="/learn" element={<Learn username={username} level={sampleLevel} />} />
         <Route path="/Lesson1" element={<Level1 />} />
         <Route path="/SignIn" element={<SignIn user={user} />} />
         <Route path="/SignUp" element={<SignUp />} />
