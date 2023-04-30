@@ -11,6 +11,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { getFirestore } from './firebase';
 import { useState, useEffect } from 'react';
+import Level3 from './pages/Level3';
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/Lesson1" element={<Level1 />} />
+        <Route path="/Lesson3" element={<Level3 />} />
         <Route path="/SignIn" element={<SignIn user={user} />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
