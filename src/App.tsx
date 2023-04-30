@@ -14,6 +14,7 @@ import Level2 from './pages/Level2';
 import Level3 from './pages/Level3';
 import Level4 from './pages/Level4';
 import Level5 from './pages/Level5';
+import Footer from './components/Footer';
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/SignIn" element={<SignIn user={user} />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
+      <Footer></Footer>
     </div>
   );
 };
