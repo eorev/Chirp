@@ -80,4 +80,8 @@ export default function Level1() {
         <p className="text-sm mb-2">
           Great Job, Move to the next</p>
         )}
+        {arraysEqual(array, [1, 2, 3, 4, 5]) && (
+        <p className="text-sm mb-2">
+            Great Job, You completed Bubble Sort!</p>
+        )}
     </div> )}
