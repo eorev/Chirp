@@ -14,6 +14,7 @@ import Level2 from './pages/Level2';
 import Level3 from './pages/Level3';
 import Level4 from './pages/Level4';
 import Level5 from './pages/Level5';
+import Footer from './components/Footer';
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
@@ -44,7 +45,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/learn" element={<Learn username={username} level={sampleLevel} />} />
-        <Route path="/Lesson1" element={<Level1 />} />
+        <Route path="/Lesson1" element={<Level1 user={user} />} />
         <Route path="/Lesson2" element={<Level2 />} />
         <Route path="/Lesson3" element={<Level3 />} />
         <Route path='/Lesson4' element={<Level4 />} />
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/SignIn" element={<SignIn user={user} />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
+      <Footer></Footer>
     </div>
   );
 };
