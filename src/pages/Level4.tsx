@@ -97,7 +97,7 @@ export default function Level4() {
                 )}
               </div>
             </button>
-            {arraysEqual(arrayOne, [1,2,3,4,5]) && <p className="text-sm">You completed merge sort!</p>}
+            {arraysEqual(arrayOne, [1,2,3,4,5]) && <p className="text-sm mb-2">You completed merge sort!</p>}
     </div>
     )
 }
