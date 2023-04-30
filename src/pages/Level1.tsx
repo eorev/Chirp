@@ -2,8 +2,20 @@
 import { useState } from "react";
 import { Draggable } from "react-drag-reorder";
 
+function arraysEqual(a, b) {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length !== b.length) return false;
+  
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+  
+    return true;
+  }
+
 export default function Level1() {
-    const [array, setArray] = useState([1, 2, 3, 4, 5]);
+    const [array, setArray] = useState([2, 1, 4, 3, 5]);
 
   const handleItemReorder = (currentPos:number, newPos:number) => {
     const newArray = array.slice();
@@ -33,14 +45,17 @@ export default function Level1() {
             </div>
 
             <div className="flex">
-      <Draggable onPosChange={handleItemReorder}>
-        {array.map((item) => (
-          <div key={item} className="w-10 h-10 bg-red-500 m-2">
-            {item}
-          </div>
-        ))}
-      </Draggable>
-    </div>
+                <Draggable onPosChange={handleItemReorder}>
+                    {array.map((item) => (
+                    <div key={item} className="w-10 h-10 bg-red-500 m-2">
+                        {item}
+                    </div>
+                    ))}
+                </Draggable>
+            </div>
+            {arraysEqual(array, [2,1,4,3,5]) && <p className="text-sm">Start by comparing the first two elements and swap them if they are in the wrong order</p>}
+            {arraysEqual(array, [1,2,4,3,5]) && <p className="text-sm">Great Job, Move to the next pair of elements and repeat the comparison and swap process</p>}
+            {arraysEqual(array, [1,2,3,4,5]) && <p className="text-sm">Great Job, You completed Bubble Sort!</p>}
     </div>
     )
 }
