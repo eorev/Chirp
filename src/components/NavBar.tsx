@@ -37,13 +37,13 @@ export default function NavBar({ children, user, username }: NavBarProps) {
     >
       <div className="p-5 font-bold">
         <ul className="flex flex-1 justify-between">
-          <Link to="/" className="flex text-4xl justify-center">
+          <Link to="/" className="flex text-6xl p-1 justify-center border-solid border-b-2 border-white hover:border-udblue hover:border-b-2 transition-all duration-300 ">
             Chirp
           </Link>
           <div className="flex space-x-2">
             <Link
               to="/learn"
-              className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+              className="flex place-items-center p-2 border-solid border-b-2 border-white hover:border-udblue hover:border-b-2 transition-all duration-300"
             >
               <FaGraduationCap size={30} />
               Learn
@@ -51,14 +51,14 @@ export default function NavBar({ children, user, username }: NavBarProps) {
             {user ? (
               <button
                 onClick={handleSignOut}
-                className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+                className="flex place-items-center p-2 border-solid border-b-2 border-white hover:border-udblue hover:border-b-2 transition-all duration-300"
               >
                 Sign Out
               </button>
             ) : (
               <Link
                 to="/SignIn"
-                className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+                className="flex place-items-center p-2 border-solid border-b-2 border-white hover:border-udblue hover:border-b-2 transition-all duration-300"
               >
                 <BiUserCircle size={30} />
                 Login

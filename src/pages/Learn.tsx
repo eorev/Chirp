@@ -9,10 +9,12 @@ interface LearnProps {
 
 function LessonCard(props: any) {
   return (
-    <div className="min-w-[16rem] h-72 bg-neutral-100 rounded-lg shadow-md p-2 m-2">
-      <Link to={props.to}>{props.lesson}</Link>
-    </div>
-  )
+    <Link to={props.to} className="hover:bg-udblue transition-all duration-300 flex flex-col items-center justify-center w-72 h-72 bg-neutral-100 rounded-lg shadow-lg p-6 m-4">
+      <div className=" text-lg font-bold">
+        {props.lesson}
+      </div>
+    </Link>
+  );
 }
 
 const Learn: React.FC<LearnProps> = ({ username, level }) => {
@@ -30,24 +32,25 @@ const Learn: React.FC<LearnProps> = ({ username, level }) => {
 
   if (!user) {
     return (
-      <div className="mt-24 flex flex-col justify-center items-center text-4xl">
+      <div className="flex flex-col items-center justify-center h-screen text-3xl">
         <div>Please sign in to access the Learn tab</div>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="mt-24 flex flex-col justify-center items-center text-4xl">
-      <div>Hello, {username}</div>
-      <div>You have {level} XP</div>
-      <div className="flex m-32  w-[80vw] overflow-scroll">
-        <LessonCard to={'/Lesson1'} lesson={"Lesson 1 Bubble Sort"}></LessonCard>
-        <LessonCard to={'/Lesson2'} lesson={"Lesson 2 Selection Sort"}></LessonCard>
-        <LessonCard to={'/Lesson3'} lesson={"Lesson 3 Insertion Sort"}></LessonCard>
-        <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
+    <div className="flex flex-col items-center justify-center h-screen text-3xl">
+      <div className="text-4xl font-bold mb-6">Hello, {username}</div>
+      <div className="text-2xl mb-6">You have {level} XP</div>
+      <div className="flex flex-wrap justify-center sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <LessonCard to={"/Lesson1"} lesson={"Lesson 1: Bubble Sort"} />
+        <LessonCard to={"/Lesson2"} lesson={"Lesson 2: Selection Sort"} />
+        <LessonCard to={"/Lesson3"} lesson={"Lesson 3: Insertion Sort"} />
+        <LessonCard to={"/Lesson4"} lesson={"Lesson 4: Merge Sort"} />
+        <LessonCard to={"/Lesson5"} lesson={"Lesson 5: Quick Sort"} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Learn;
