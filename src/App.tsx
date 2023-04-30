@@ -1,31 +1,50 @@
-import './App.css'
-import Landing from './pages/Landing'
-import Learn from './pages/Learn'
-import NavBar from './components/NavBar'
-import { BiUserCircle } from "react-icons/bi"
-import { FaGraduationCap } from "react-icons/fa"
-import { Link, Route, Routes } from "react-router-dom";
-import Level1 from './pages/Level1'
+import './App.css';
+import Landing from './pages/Landing';
+import Learn from './pages/Learn';
+import NavBar from './components/NavBar';
+import { Link, Route, Routes } from 'react-router-dom';
+import Level1 from './pages/Level1';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { getFirestore } from './firebase';
+import { useState, useEffect } from 'react';
 
-function App() {
+const App = () => {
+  const [user, setUser] = useState<any>(null);
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        const userDocRef = doc(getFirestore(), 'users', currentUser.uid);
+        const userDocSnap = await getDoc(userDocRef);
+        setUsername(userDocSnap.data()?.username || '');
+      } else {
+        setUsername('');
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <div>
-      <NavBar>
-        <ul className='flex flex-1 justify-between'>
-        <Link to="/" className='flex text-4xl justify-center'>Chirp</Link>
-          <div className=' flex space-x-2'>
-            <Link to="/learn" className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'><FaGraduationCap size={30}></FaGraduationCap>Learn</Link>
-            <button className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'><BiUserCircle size={30}></BiUserCircle>Login</button>
-          </div>
-        </ul>
-      </NavBar>
+      <NavBar user={user} username={username} />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/Lesson1" element={<Level1 />} />
+        <Route path="/SignIn" element={<SignIn user={user} />} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
