@@ -14,7 +14,7 @@ function arraysEqual(a: number[], b: number[]) {
     return true;
   }
 
-export default function Level4() {
+export default function Level5() {
     const [array, setArray] = useState([2, 1, 4, 3, 5, 8, 6]);
 
   const handleItemReorder = (currentPos:number, newPos:number) => {
