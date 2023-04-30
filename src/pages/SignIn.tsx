@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "firebase/auth";
+import "./SignIn.css";
 
 interface SignInProps {
   user: User | null;
@@ -41,7 +42,8 @@ const SignIn: React.FC<SignInProps> = ({ user }) => {
   }, [user]);
 
   return (
-    <div className="m-10">
+    <div className="signin-container">
+    <div className="signin-form__container">
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -66,11 +68,20 @@ const SignIn: React.FC<SignInProps> = ({ user }) => {
         <br />
         <button type="submit">Sign In</button>
       </form>
-      <h1>Don't have a account?</h1>
-      <Link to="/SignUp" className='flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300'>Sign Up!</Link>
-      <br />
-      <button onClick={handleGoogleSignIn}>Sign in with Google</button>
+      <h1>Don't have an account?</h1>
+      <div className="link-container">
+        <Link
+          to="/SignUp"
+          className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+        >
+          Sign Up!
+        </Link>
+      </div>
+      <button className="signinLogin" onClick={handleGoogleSignIn}>
+        Sign in with Google
+      </button>
     </div>
+  </div>
   );
 };
 
