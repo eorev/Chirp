@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Level4 from "./Level4";
 
 function LessonCard(props: any) {
     return (
@@ -14,6 +15,7 @@ export default function Learn() {
         <div className="mt-24 flex flex-col justify-center items-center text-4xl">
             <div>Hello, Username</div>
             <div>You have # XP</div>
+            <Level4></Level4>
             <div className="flex m-32  w-[80vw] overflow-scroll">
                 <LessonCard to={'/Lesson1'} lesson={"Lesson 1 Bubble Sort"}></LessonCard>
                 <LessonCard to={'/Lesson2'} lesson={"Lesson 2 Selection Sort"}></LessonCard>

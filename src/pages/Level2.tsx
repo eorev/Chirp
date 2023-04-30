@@ -14,7 +14,7 @@ function arraysEqual(a: number[], b: number[]) {
     return true;
   }
 
-export default function Level1() {
+export default function Level2() {
     const [array, setArray] = useState([2, 1, 4, 3, 5]);
 
     const handleItemReorder = (currentPos:number, newPos:number) => {
@@ -54,7 +54,8 @@ export default function Level1() {
                     ))}
                 </Draggable>
             </div>
-            {arraysEqual(array, [1,2,4,3,5]) && <p className="text-sm">Start by  finding the smallest card and swapping it with the first card.</p>}
+            {arraysEqual(array, [2,1,4,3,5]) && <p className="text-sm">Start by  finding the smallest card and swapping it with the first card.</p>}
+            {arraysEqual(array, [1,2,4,3,5]) && <p className="text-sm">Great Job, now repeat the comparisons and swap the cards!</p>}
             {arraysEqual(array, [1,2,3,4,5]) && <p className="text-sm">Great Job, now repeat the comparisons and swap the cards!</p>}
             {arraysEqual(array, [1,2,3,4,5]) && <p className="text-sm">Great Job, You completed Selection Sort!</p>}
     </div>
