@@ -1,5 +1,7 @@
 
 export default function Level1() {
+    let array = [2, 3, 1, 5, 4]
+
     return (
         <div className="flex flex-col mt-24 justify-center items-center text-4xl">
             <h1>Bubble Sort Example</h1>
@@ -13,6 +15,18 @@ export default function Level1() {
                 <li>Continue comparing and swapping adjacent elements until you reach the end of the array.</li>
                 <li>Repeat steps 2-4 until no more swaps are needed (i.e., the array is now sorted).</li>
             </ol>
+            </div>
+
+            <div>
+
+            </div>
+
+            <div className="flex">
+                {array.map((num) => {
+                    return (
+                        <div className="bg-slate-200 m-2 rounded-lg p-2 shadow-md">{num}</div>
+                    )
+                })}
             </div>
     </div>
     )
