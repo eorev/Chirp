@@ -20,9 +20,9 @@ const Learn: React.FC<LearnProps> = ({ username, level }) => {
             <div>Hello, {username}</div>
             <div>You have {level} XP</div>
             <div className="flex m-32  w-[80vw] overflow-scroll">
-                <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
-                <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
-                <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
+                <LessonCard to={'/Lesson1'} lesson={"Lesson 1 Bubble Sort"}></LessonCard>
+                <LessonCard to={'/Lesson2'} lesson={"Lesson 2 Selection Sort"}></LessonCard>
+                <LessonCard to={'/Lesson3'} lesson={"Lesson 3 Insertion Sort"}></LessonCard>
                 <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
             </div>
         </div>
