@@ -44,7 +44,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/learn" element={<Learn username={username} level={sampleLevel} />} />
-        <Route path="/Lesson1" element={<Level1 />} />
+        <Route path="/Lesson1" element={<Level1 user={user} />} />
         <Route path="/Lesson2" element={<Level2 />} />
         <Route path="/Lesson3" element={<Level3 />} />
         <Route path='/Lesson4' element={<Level4 />} />

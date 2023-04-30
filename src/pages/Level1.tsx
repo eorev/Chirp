@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Draggable } from "react-drag-reorder";
+import { updateDoc, doc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
+import { increment } from "firebase/firestore";
 
 function arraysEqual(a: number[], b: number[]) {
   if (a === b) return true;
@@ -13,18 +16,28 @@ function arraysEqual(a: number[], b: number[]) {
   return true;
 }
 
-export default function Level1() {
+export default function Level1({ user }: { user: any }) {
   const [array, setArray] = useState([2, 1, 4, 3, 5]);
   const [correct, setCorrect] = useState(false);
 
+  const updateExperience = async (userId: string) => {
+    const userDocRef = doc(getFirestore(), 'users', userId);
+    await updateDoc(userDocRef, {
+      experience: increment(100)
+    });
+  };
+  
   const handleItemReorder = (currentPos: number, newPos: number) => {
     const newArray = array.slice();
     const [removed] = newArray.splice(currentPos, 1);
     newArray.splice(newPos, 0, removed);
     setArray(newArray);
     console.log(newArray); // Log the updated array
-    arraysEqual(array, [1, 2, 3, 4, 5]) ? setCorrect(true) : setCorrect(false);
-  };
+    if (arraysEqual(newArray, [1, 2, 3, 4, 5])) {
+      setCorrect(true);
+      if (user) updateExperience(user.uid);
+    }
+  };  
 
   return (
     <div className="flex flex-col m-24 justify-center items-center text-4xl">
@@ -57,7 +70,6 @@ export default function Level1() {
           </li>
         </ol>
       </div>
-
       <div className="flex mb-4">
         <Draggable onPosChange={handleItemReorder}>
           {array.map((item) => (
@@ -78,10 +90,14 @@ export default function Level1() {
       )}
       {arraysEqual(array, [1, 2, 4, 3, 5]) && (
         <p className="text-sm mb-2">
-          Great Job, Move to the next</p>
-        )}
-        {arraysEqual(array, [1, 2, 3, 4, 5]) && (
+          Great job! Move to the next pair of elements and continue the process.
+        </p>
+      )}
+      {arraysEqual(array, [1, 2, 3, 4, 5]) && (
         <p className="text-sm mb-2">
-            Great Job, You completed Bubble Sort!</p>
-        )}
-    </div> )}
+          Great job! You completed the Bubble Sort!
+        </p>
+      )}
+    </div>
+  );
+}
