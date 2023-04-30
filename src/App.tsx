@@ -13,6 +13,7 @@ import { useState, useEffect } from 'react';
 import Level2 from './pages/Level2';
 import Level3 from './pages/Level3';
 import Level4 from './pages/Level4';
+import Level5 from './pages/Level5';
 
 const App = () => {
   const [user, setUser] = useState<any>(null);
@@ -47,6 +48,7 @@ const App = () => {
         <Route path="/Lesson2" element={<Level2 />} />
         <Route path="/Lesson3" element={<Level3 />} />
         <Route path='/Lesson4' element={<Level4 />} />
+        <Route path='/Lesson5' element={<Level5 />} />
         <Route path="/SignIn" element={<SignIn user={user} />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
