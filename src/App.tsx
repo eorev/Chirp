@@ -37,14 +37,12 @@ const App = () => {
     };
   }, []);
 
-  const sampleLevel = 10; // Replace this with the actual level or XP value
-
   return (
     <div>
       <NavBar user={user} username={username} />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/learn" element={<Learn username={username} level={sampleLevel} />} />
+        <Route path="/learn" element={<Learn username={username} level={0}/>} />
         <Route path="/Lesson1" element={<Level1 user={user} />} />
         <Route path="/Lesson2" element={<Level2 />} />
         <Route path="/Lesson3" element={<Level3 />} />

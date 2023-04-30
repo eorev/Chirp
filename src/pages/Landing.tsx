@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Landing.css'
+import LandingImage from '../assets/LandingImage'
 
 const Landing = () => {
     return (
@@ -14,7 +15,7 @@ const Landing = () => {
                     </Link>
                 </div>
                 <div className='header-right__container'>
-                    <img src="https://picsum.photos/500" alt="" />
+                    <LandingImage />
                 </div>
             </div>
         </header>
