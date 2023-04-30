@@ -15,7 +15,7 @@ export default function Learn() {
             <div>Hello, Username</div>
             <div>You have # XP</div>
             <div className="flex m-32  w-[80vw] overflow-scroll">
-                <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
+                <LessonCard to={'/Lesson1'} lesson={"Lesson 1 Bubble Sort"}></LessonCard>
                 <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
                 <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
                 <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
