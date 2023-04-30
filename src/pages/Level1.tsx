@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Draggable } from "react-drag-reorder";
 
-function arraysEqual(a, b) {
+function arraysEqual(a: number[], b: number[]) {
     if (a === b) return true;
     if (a == null || b == null) return false;
     if (a.length !== b.length) return false;
