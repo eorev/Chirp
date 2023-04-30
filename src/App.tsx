@@ -5,7 +5,6 @@ import { BiUserCircle } from "react-icons/bi"
 import { FaGraduationCap } from "react-icons/fa"
 
 function App() {
-
   return (
     <div>
       <NavBar>
