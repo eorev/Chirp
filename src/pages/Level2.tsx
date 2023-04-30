@@ -14,7 +14,7 @@ function arraysEqual(a: number[], b: number[]) {
     return true;
   }
 
-export default function Level1() {
+export default function Level2() {
     const [array, setArray] = useState([2, 1, 4, 3, 5]);
     const [correct, setCorrect] = useState(false);
 

@@ -7,6 +7,7 @@ interface LearnProps {
   level: number;
 }
 
+
 function LessonCard(props: any) {
   return (
     <div className="min-w-[16rem] h-72 bg-neutral-100 rounded-lg shadow-md p-2 m-2">
@@ -30,6 +31,16 @@ const Learn: React.FC<LearnProps> = ({ username, level }) => {
 
   if (!user) {
     return (
+        <div className="mt-24 flex flex-col justify-center items-center text-4xl">
+            <div>Hello, Username</div>
+            <div>You have # XP</div>
+            <div className="flex m-32  w-[80vw] overflow-scroll">
+                <LessonCard to={'/Lesson1'} lesson={"Lesson 1 Bubble Sort"}></LessonCard>
+                <LessonCard to={'/Lesson2'} lesson={"Lesson 2 Selection Sort"}></LessonCard>
+                <LessonCard to={'/Lesson3'} lesson={"Lesson 3 Insertion Sort"}></LessonCard>
+                <LessonCard to={'/Lesson1'} lesson={"Lesson 1"}></LessonCard>
+            </div>
+        </div>
       <div className="mt-24 flex flex-col justify-center items-center text-4xl">
         <div>Please sign in to access the Learn tab</div>
       </div>
