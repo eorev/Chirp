@@ -1,10 +1,17 @@
 
+import { useState } from "react";
 import { Draggable } from "react-drag-reorder";
 
 export default function Level1() {
-    let state = {
-        array: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    };
+    const [array, setArray] = useState([1, 2, 3, 4, 5]);
+
+  const handleItemReorder = (currentPos:number, newPos:number) => {
+    const newArray = array.slice();
+    const [removed] = newArray.splice(currentPos, 1);
+    newArray.splice(newPos, 0, removed);
+    setArray(newArray);
+    console.log(newArray); // Log the updated array
+  };
 
     return (
         <div className="flex flex-col mt-24 justify-center items-center text-4xl">
@@ -26,12 +33,14 @@ export default function Level1() {
             </div>
 
             <div className="flex">
-                <Draggable>
-                    {state.array.map((item: any) => (
-                        <div className="w-10 h-10 bg-red-500 m-2">{item}</div>
-                    ))}
-                </Draggable>
-            </div>
+      <Draggable onPosChange={handleItemReorder}>
+        {array.map((item) => (
+          <div key={item} className="w-10 h-10 bg-red-500 m-2">
+            {item}
+          </div>
+        ))}
+      </Draggable>
+    </div>
     </div>
     )
 }

@@ -1,6 +1,28 @@
 import { useEffect, useState } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore, getFirestore } from "../firebase";
+import { Link } from "react-router-dom";
+import { BiUserCircle } from "react-icons/bi";
+import { FaGraduationCap } from "react-icons/fa";
 
-export default function NavBar({ children }: any) {
+export interface NavBarProps {
+  children?: React.ReactNode;
+  user: any;
+  username: string;
+}
+
+export default function NavBar({ children, user, username }: NavBarProps) {
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+  
 
   const scrollDirection = useScrollDirection();
   return (
@@ -13,7 +35,38 @@ export default function NavBar({ children }: any) {
           : "bg-transparent top-0"
       } h-24 transition-all duration-300`}
     >
-      <div className="p-5 font-bold">{children}</div>
+      <div className="p-5 font-bold">
+        <ul className="flex flex-1 justify-between">
+          <Link to="/" className="flex text-4xl justify-center">
+            Chirp
+          </Link>
+          <div className="flex space-x-2">
+            <Link
+              to="/learn"
+              className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+            >
+              <FaGraduationCap size={30} />
+              Learn
+            </Link>
+            {user ? (
+              <button
+                onClick={handleSignOut}
+                className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <Link
+                to="/SignIn"
+                className="flex place-items-center p-2 hover:bg-udblue rounded-lg transition-all duration-300"
+              >
+                <BiUserCircle size={30} />
+                Login
+              </Link>
+            )}
+          </div>
+        </ul>
+      </div>
     </div>
   );
 }
