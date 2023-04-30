@@ -25,6 +25,7 @@ export default function Level2() {
         newArray.splice(newPos, 0, removed);
         setArray(newArray);
         console.log(newArray); // Log the updated array
+        console.log(correct)
         arraysEqual(array, [1,2,3,4,5]) ? setCorrect(true) : setCorrect(false)
       };
 

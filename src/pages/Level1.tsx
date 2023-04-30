@@ -35,6 +35,7 @@ export default function Level1({ user }: { user: any }) {
     console.log(newArray); // Log the updated array
     if (arraysEqual(newArray, [1, 2, 3, 4, 5])) {
       setCorrect(true);
+      console.log(correct)
       if (user) updateExperience(user.uid);
     }
   };  

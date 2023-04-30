@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Landing from "./pages/Landing";
 import Learn from "./pages/Learn";

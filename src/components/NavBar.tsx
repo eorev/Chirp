@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { firestore, getFirestore } from "../firebase";
+import { signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import { FaGraduationCap } from "react-icons/fa";
@@ -13,7 +11,7 @@ export interface NavBarProps {
   username: string;
 }
 
-export default function NavBar({ children, user, username }: NavBarProps) {
+export default function NavBar({  user, }: NavBarProps) {
 
   const handleSignOut = async () => {
     try {
