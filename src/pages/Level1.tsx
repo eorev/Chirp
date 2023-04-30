@@ -27,7 +27,7 @@ export default function Level1() {
   };
 
   return (
-    <div className="flex flex-col mt-24 justify-center items-center text-4xl">
+    <div className="flex flex-col m-24 justify-center items-center text-4xl">
       <h1 className="text-4xl font-bold mb-4">Bubble Sort Example</h1>
       <div className="text-sm mb-4">
         <p className="mb-2">
