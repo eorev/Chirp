@@ -1,7 +1,7 @@
 const LandingImage = () => {
     return (
       <div className="landing-image">
-        <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="744" height="539.28592" viewBox="0 0 744 539.28592">
+        <svg className="landing-image" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="744" height="539.28592" viewBox="0 0 744 539.28592">
             <path d="M702.11417,584.643v130H376.41542c-37.109,0-67.30125-29.15983-67.30125-65s30.19221-65,67.30125-65Z" transform="translate(-228 -180.35704)" fill="#f2f2f2"/>
             <path d="M710.11417,713.643a5.002,5.002,0,0,1-5,5h-334.5a68.5,68.5,0,1,1,0-137h334.5a5,5,0,0,1,0,10h-334.5a58.5,58.5,0,1,0,0,117h334.5A5.002,5.002,0,0,1,710.11417,713.643Z" transform="translate(-228 -180.35704)" fill="#00539f"/>
             <path d="M702.11417,614.643h-350a1,1,0,1,1,0-2h350a1,1,0,0,1,0,2Z" transform="translate(-228 -180.35704)" fill="#ccc"/>
