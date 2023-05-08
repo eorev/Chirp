@@ -25,11 +25,11 @@ export default function NavBar({  user, }: NavBarProps) {
   const scrollDirection = useScrollDirection();
   return (
     <div
-      className={`bg-transparent max-w-full overflow-visible sticky z-40 -my-8 ${
+      className={`bg-white max-w-full overflow-visible sticky z-40 -my-8 ${
         scrollDirection === "down"
-          ? "lg:-top-24"
+          ? "-top-24"
           : scrollDirection === "up"
-          ? "top-0 dark:bg-neutral-900 bg-white"
+          ? "top-0 bg-white"
           : "bg-transparent top-0"
       } h-24 transition-all duration-300`}
     >
